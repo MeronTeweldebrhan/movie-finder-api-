@@ -1,24 +1,16 @@
 import express from 'express'
-
-const router =express()
+import { searchMovies,getMovieDetails } from '../controllers/movieController.js'
+const router =express.Router()
 
 /**
  * GET /search
  */
-router.get('/search',(req,res)=>{
-
-    res.send('searching...')
-
-
-})
+router.get('/search',searchMovies)
 
 
 /**
  * GET /movies/:id
  */
-router.get('/movies/:id',(req,res)=>{
-const {id}=req.params
+router.get('/movies/:id',getMovieDetails)
 
-res.send(`moveis id:${id}`)
-
-})
+export default router
